@@ -26,7 +26,7 @@ var initMap = function(){
               
     for(var i=0; i<places.length; i++){
         AddMarker(places[i]);
-    };
+    }
   
 };
 
@@ -45,7 +45,7 @@ var AddMarker = function(place){
                                      self.marker]);                    
             google.maps.event.addListener(marker, 'click', function() {
                 stopAnimation();
-                startAnimation(myLatLng)
+                startAnimation(myLatLng);
                 FoursquareData(place);
             });
         }
@@ -73,14 +73,14 @@ var startAnimation = function(myLatLng){
                 }
             });
         });
-}
+};
 
 // stops the marker bounce animation
 var stopAnimation = function(){
     for(var i=0; i<self.markersArray().length; i++ ){
         self.markersArray()[i][1].setAnimation(null);
     }
-}
+};
 
 // Gets the location data from Foursquare
 var FoursquareData = function(place){
@@ -90,12 +90,12 @@ var FoursquareData = function(place){
     var yyyy = today.getFullYear();
     
     if(dd<10){
-        dd='0'+dd
+        dd='0'+dd;
     } 
     if(mm<10){
-        mm='0'+mm
+        mm='0'+mm;
     } 
-    var today = ""+yyyy+mm+dd+"";
+    today = ""+yyyy+mm+dd+"";
 
     var venue_id = place.venue_id;
     var client_id = "DZXPLNLIAJNAQXLNL21GGL3LOEJVT5OTUNXDWK3HHZQAWGL4";
@@ -117,7 +117,7 @@ var FoursquareData = function(place){
             }   
     }).error(function(data){
         FourSquareError();
-    })
+    });
     
 };
 
